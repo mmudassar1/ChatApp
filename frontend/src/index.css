@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for WebKit browsers */
+.flex-1::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.flex-1 {
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* For other browsers, you can use a custom style if needed */
+.flex-1 {
+    overflow: -moz-scrollbars-none; /* Hide scrollbar in older versions of Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
+}
+
+/* Optional: Add padding to the content to ensure it is still usable */
+.flex-1 {
+    padding-right: 10px; /* Adjust as necessary */
+}
