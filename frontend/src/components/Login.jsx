@@ -19,15 +19,15 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    // console.log(userInfo);
     axios
       .post("/api/user/login", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");
+          // Store user data as a string in localStorage and set authUser as an object
+          localStorage.setItem("ChatApp", JSON.stringify(response.data));
+          setAuthUser(response.data);
         }
-        localStorage.setItem("ChatApp", JSON.stringify(response.data));
-        setAuthUser(response.data);
       })
       .catch((error) => {
         if (error.response) {
@@ -45,7 +45,7 @@ function Login() {
           <h1 className="text-2xl text-center">
             Chat<span className="text-green-500 font-semibold">App</span>
           </h1>
-          <h2 className="text-xl text-white font-bold">Login</h2>
+          <h2 className="text-xl text-white font-bold">Login</h2> 
           <br />
 
           {/* Email */}
@@ -116,7 +116,7 @@ function Login() {
           </div>
         </form>
       </div>
-    </>
+    </> 
   );
 }
 
